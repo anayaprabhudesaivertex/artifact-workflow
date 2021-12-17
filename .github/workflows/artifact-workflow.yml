@@ -6,8 +6,16 @@ env:
  ARTIFACT_NAME: test-artifact
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps: 
+    - name: checkout the code
+      uses: actions/checkout@v2
+    - name: run python script
+      run: python hello.py
   build:
     runs-on: ubuntu-latest
+    needs: test
     steps: 
     - name: checkout the code
       uses: actions/checkout@v2
