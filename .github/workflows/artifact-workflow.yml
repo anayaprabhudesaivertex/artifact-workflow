@@ -1,10 +1,9 @@
 name: artifacts workflow
 
-on:[push]
+on: [push]
 
 env:
- ${{env.ARTIFACT_NAME}}
- path: .: test-artifact
+ ARTIFACT_NAME: test-artifact
 
 jobs:
   build:
@@ -12,7 +11,7 @@ jobs:
     steps:
     -name: checkout code
     uses: actions/checkout@v2
-    -name: upload artifacts
+    -name: uploadin artifacts
     uses: actions/upload-artifact@v2
     with:
       name: ${{env.ARTIFACT_NAME}}
