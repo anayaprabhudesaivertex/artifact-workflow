@@ -8,12 +8,14 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-    -name: checkout code
-    uses: actions/checkout@v2
-    -name: uploadin artifacts
-    uses: actions/upload-artifact@v2
-    with:
-      name: ${{env.ARTIFACT_NAME}}
-      path: .
+    steps: 
+    - name: checkout the code
+      uses: actions/checkout@v2
+    - name: upload the artifact
+      uses: actions/upload-artifact@v2
+      with:
+       name: ${{env.test-artifact}}
+       path: .
+
     
+   
